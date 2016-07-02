@@ -1,0 +1,15 @@
+{
+  "name": "angular-hangman",
+  "description": "Angular Hangman",
+  "main": "index.js",
+  "authors": [
+    "Guilherme C Matuella <guilherme1matuella@gmail.com> (http://gmatuella.com/)"
+  ],
+  "directory": "/app/bower_components",
+  "license": "MIT",
+  "homepage": "https://github.com/matuella/angular-hangman",
+  "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "angular": "^1.5.7"
+  }
+}

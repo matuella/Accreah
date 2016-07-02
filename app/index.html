@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="hangmanApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Hangman</title>
+    <link type="text/css" rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css">
+</head>
+<body ng-controller="hangmanController">
+<div class="expanded row">
+    <div class="small-12 columns text-center">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="small-1 columns">
+        <label for="name-label" class="text-right middle">Name:</label>
+    </div>
+    <div class="small-11 columns">
+        <input type="text" id="name-label" placeholder="Your name">
+    </div>
+    <div class="small-12 columns text-center">
+        <a href="#" class="button">Start Game!</a>
+    </div>
+</div>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

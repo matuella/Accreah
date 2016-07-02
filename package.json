@@ -1,0 +1,19 @@
+{
+  "name": "angular-hangman",
+  "version": "1.0.0",
+  "description": "Angular Hangman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/matuella/angular-hangman.git"
+  },
+  "author": "Guilherme C Matuella <guilherme1matuella@gmail.com> (http://gmatuella.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matuella/angular-hangman/issues"
+  },
+  "homepage": "https://github.com/matuella/angular-hangman#readme"
+}
