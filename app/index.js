@@ -4,9 +4,8 @@
 var app = angular.module('hangmanApp', []);
 
 app.controller('hangmanController', function ($scope) {
-
     $scope.title = "Angular Hangman";
-    $scope.gameExists = false;
+    $scope.showTip = false;
 
     $scope.startGame = function startGame(playerName){
         $scope.gameExists = true;
@@ -19,6 +18,7 @@ app.controller('hangmanController', function ($scope) {
             {letter: 'C', enabled: true}
             ]
         };
+        $scope.gameWord = generateRandomWord();
     };
 
     $scope.endGame = function endGame(){
@@ -29,10 +29,7 @@ app.controller('hangmanController', function ($scope) {
 
     };
 
-    $scope.testeParse = function testeParse(word) {
-        $scope.parsedWord = "";
-        for (i = 0; i < word.length; i++) {
-            $scope.parsedWord += "_ ";
-        }
+    $scope.toggleTip = function toggleTip(){
+        $scope.showTip = ($scope.showTip) ? false : true;
     };
 });
