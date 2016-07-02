@@ -10,17 +10,52 @@
     <div class="small-12 columns text-center">
         <h1>{{title}}</h1>
     </div>
+</div>
+<div ng-if="!gameExists" class="expanded row">
     <div class="small-1 columns">
-        <label for="name-label" class="text-right middle">Name:</label>
+        <label for="name" class="text-right middle">Name:</label>
     </div>
-    <div class="small-11 columns">
-        <input type="text" id="name-label" placeholder="Your name">
+    <div class="small-7 columns">
+        <input ng-model="nameInput" type="text" id="name" placeholder="Write your name">
+    </div>
+    <div class="small-1 columns">
+        <label for="b-mode" class="text-right middle">B-mode:</label>
+    </div>
+    <div class="small-3 columns">
+        <div class="switch small">
+            <input class="switch-input" id="b-mode" type="checkbox" name="exampleSwitch">
+            <label class="switch-paddle" for="b-mode">
+                <span class="show-for-sr">Small Portions Only</span>
+            </label>
+        </div>
     </div>
     <div class="small-12 columns text-center">
-        <a href="#" class="button">Start Game!</a>
+        <a ng-click="startGame(nameInput)" href="#" class="button">Start Game!</a>
+    </div>
+</div>
+<div ng-if="gameExists">
+    <div class="expanded row">
+        <div class="small-12 medium-6 large-4 columns text-center">
+            <p>Player name: {{player.name}}</p>
+        </div>
+        <div class="small-12 medium-6 large-4 columns text-center">
+            <p>Remaining attempts: {{player.remainingAttempts}}</p>
+        </div>
+        <div class="small-12 medium-12 large-4 columns text-center">
+            <p>Image src = images/hangman{{player.remainingAttempts}}.png</p>
+        </div>
+    </div>
+    <div class="expanded row">
+        <div class="small-12 columns text-center">
+            <p>Player name: {{player.name}}</p>
+        </div>
+        <div class="small-12 columns text-center">
+            <p>Remaining attempts: {{player.remainingAttempts}}</p>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<link type="text/css" rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.js">
 <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
