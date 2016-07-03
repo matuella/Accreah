@@ -17,15 +17,32 @@ app.controller('hangmanController', function ($scope) {
             name: playerName,
             remainingAttempts: 6
         };
+        $scope.lettersTried = [];
         $scope.gameWord = generateRandomWord();
     };
 
-    $scope.endGame = function endGame() {
-        $scope.gameExists = false;
-    };
+    $scope.hasTried = function hasTried(letter){
+        for (i = 0; i < $scope.lettersTried.length; i++) {
+            if($scope.lettersTried[i] == letter){
+                return true;
+            }
+        }
+        return false;
+    }
 
-    $scope.guessLetter = function guessLetter() {
-
+    $scope.guessLetter = function guessLetter(letter) {
+        var guessedWrong = true;
+        for (var i = 0; i < $scope.gameWord.word.length; i++) {
+            if($scope.gameWord.word[i] == letter){
+                console.log($scope.gameWord.secretWord[i*2]);
+                $scope.gameWord.secretWord = setCharAt($scope.gameWord.secretWord, i*2, letter);
+                $scope.lettersTried.push(letter);
+                guessedWrong = false;
+            }
+        }
+        if(guessedWrong){
+            $scope.player.remainingAttempts--;
+        }
     };
 
     $scope.toggleTip = function toggleTip() {

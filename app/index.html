@@ -50,11 +50,14 @@
         <div class="small-12 columns text-center">
             <p>{{gameWord.secretWord}}</p>
         </div>
+        <!--ng-class="test: hasTried(letter)"-->
         <div class="small-12 columns text-center">
-            <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter()" class="button keyboard-button">{{letter}}</a>
+            <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter(letter)"
+               class="button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
-            <a ng-repeat="letter in lettersSecondRow" ng-click="guessLetter()" class="button keyboard-button">{{letter}}</a>
+            <a ng-repeat="letter in lettersSecondRow" ng-click="guessLetter(letter)"
+               class="button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
             <a ng-click="toggleTip()" class="button">Tip!</a>
@@ -62,8 +65,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<link type="text/css" rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.js">
+<script type="text/javascript" src="bower_components/foundation-sites/dist/foundation.min.js"></script>
 <script type="text/javascript" src="util.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </body>
