@@ -16,22 +16,11 @@
     <div class="small-1 columns">
         <label for="name" class="text-right middle">Name:</label>
     </div>
-    <div class="small-7 columns">
+    <div class="small-11 columns">
         <input ng-model="nameInput" type="text" id="name" placeholder="Write your name">
     </div>
-    <div class="small-1 columns">
-        <label for="b-mode" class="text-right middle">B-mode:</label>
-    </div>
-    <div class="small-3 columns">
-        <div class="switch small">
-            <input class="switch-input" id="b-mode" type="checkbox" name="exampleSwitch">
-            <label class="switch-paddle" for="b-mode">
-                <span class="show-for-sr">Small Portions Only</span>
-            </label>
-        </div>
-    </div>
     <div class="small-12 columns text-center">
-        <a ng-click="startGame(nameInput)" class="button">Start Game!</a>
+        <a ng-click="startGame(nameInput)" href="" class="button expanded">Start Game!</a>
     </div>
 </div>
 <div ng-if="gameExists">
@@ -50,6 +39,8 @@
         <div class="small-12 columns text-center">
             <p>{{gameWord.secretWord}}</p>
         </div>
+    </div>
+    <div ng-show="!hasEnded()" class="expanded row">
         <div class="small-12 columns text-center">
             <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter(letter)"
                ng-class="hasTried(letter)" class="button keyboard-button">{{letter}}</a>
@@ -61,6 +52,12 @@
         <div class="small-12 columns text-center">
             <a ng-click="toggleTip()" class="button">Tip!</a>
             <p ng-show="showTip">{{gameWord.tip}}</p>
+        </div>
+    </div>
+    <div ng-show="hasEnded()" class="expanded row">
+        <div class="small-12 columns text-center">
+            <p>{{endingSentence}}</p>
+            <a ng-click="startGame(player.name)" href="" class="button expanded">Start Again!</a>
         </div>
     </div>
 </div>
