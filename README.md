@@ -1,4 +1,4 @@
-#Acessible and Responsive Angular Hangman
+#Accreah - Accessible and Responsive Angular Hangman
 
 ###Introduction
 A Hangman game made with the intention of being simple, responsive and acessible.
