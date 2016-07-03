@@ -17,17 +17,23 @@ app.controller('hangmanController', function ($scope) {
             name: playerName,
             remainingAttempts: 6
         };
-        $scope.lettersTried = [];
+        $scope.rightLetters = [];
+        $scope.wrongLetters = [];
         $scope.gameWord = generateRandomWord();
     };
 
     $scope.hasTried = function hasTried(letter){
-        for (i = 0; i < $scope.lettersTried.length; i++) {
-            if($scope.lettersTried[i] == letter){
-                return true;
+        for (i = 0; i < $scope.rightLetters.length; i++) {
+            if($scope.rightLetters[i] == letter){
+                return 'success';
             }
         }
-        return false;
+        for (i = 0; i < $scope.wrongLetters.length; i++) {
+            if($scope.wrongLetters[i] == letter){
+                return 'alert';
+            }
+        }
+        return '';
     }
 
     $scope.guessLetter = function guessLetter(letter) {
@@ -36,13 +42,15 @@ app.controller('hangmanController', function ($scope) {
             if($scope.gameWord.word[i] == letter){
                 console.log($scope.gameWord.secretWord[i*2]);
                 $scope.gameWord.secretWord = setCharAt($scope.gameWord.secretWord, i*2, letter);
-                $scope.lettersTried.push(letter);
+                $scope.rightLetters.push(letter);
                 guessedWrong = false;
             }
         }
         if(guessedWrong){
             $scope.player.remainingAttempts--;
+            $scope.wrongLetters.push(letter);
         }
+
     };
 
     $scope.toggleTip = function toggleTip() {

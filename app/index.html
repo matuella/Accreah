@@ -50,14 +50,13 @@
         <div class="small-12 columns text-center">
             <p>{{gameWord.secretWord}}</p>
         </div>
-        <!--ng-class="test: hasTried(letter)"-->
         <div class="small-12 columns text-center">
             <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter(letter)"
-               class="button keyboard-button">{{letter}}</a>
+               ng-class="hasTried(letter)" class="button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
             <a ng-repeat="letter in lettersSecondRow" ng-click="guessLetter(letter)"
-               class="button keyboard-button">{{letter}}</a>
+               ng-class="hasTried(letter)" class="button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
             <a ng-click="toggleTip()" class="button">Tip!</a>
