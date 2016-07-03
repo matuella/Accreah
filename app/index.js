@@ -23,14 +23,14 @@ app.controller('hangmanController', function ($scope) {
         $scope.endingSentence = '';
     };
 
-    $scope.hasTried = function hasTried(letter){
+    $scope.hasTried = function hasTried(letter) {
         for (i = 0; i < $scope.rightLetters.length; i++) {
-            if($scope.rightLetters[i] == letter){
+            if ($scope.rightLetters[i] == letter) {
                 return 'success';
             }
         }
         for (i = 0; i < $scope.wrongLetters.length; i++) {
-            if($scope.wrongLetters[i] == letter){
+            if ($scope.wrongLetters[i] == letter) {
                 return 'alert';
             }
         }
@@ -40,13 +40,18 @@ app.controller('hangmanController', function ($scope) {
     $scope.guessLetter = function guessLetter(letter) {
         var guessedWrong = true;
         for (var i = 0; i < $scope.gameWord.word.length; i++) {
-            if($scope.gameWord.word[i] == letter){
-                $scope.gameWord.secretWord = setCharAt($scope.gameWord.secretWord, i*2, letter);
+            if ($scope.gameWord.word[i] == letter) {
+                $scope.gameWord.secretWord = setCharAt($scope.gameWord.secretWord, i * 2, letter);
                 $scope.rightLetters.push(letter);
                 guessedWrong = false;
             }
         }
-        if(guessedWrong){
+        if (guessedWrong) {
+            for (var i = 0; i < $scope.wrongLetters.length; i++) {
+                if ($scope.wrongLetters[i] == letter) {
+                    return;
+                }
+            }
             $scope.player.remainingAttempts--;
             $scope.wrongLetters.push(letter);
         }
@@ -56,16 +61,15 @@ app.controller('hangmanController', function ($scope) {
         $scope.showTip = ($scope.showTip) ? false : true;
     };
 
-    $scope.hasEnded = function hasEnded(){
-        if($scope.player.remainingAttempts < 1){
-            $scope.endingSentence = 'YOU LOST! :(';
+    $scope.hasEnded = function hasEnded() {
+        if ($scope.player.remainingAttempts < 1) {
+            $scope.endingSentence = 'YOU LOST! The word was: ' + $scope.gameWord.word + ' :( ';
             return true;
         }
-        if($scope.gameWord.secretWord.indexOf('_') == -1){
+        if ($scope.gameWord.secretWord.indexOf('_') == -1) {
             $scope.endingSentence = 'YOU WON! :D';
             return true;
         }
-        console.log("it's returning false...");
         return false;
     }
 });

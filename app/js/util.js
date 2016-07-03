@@ -23,6 +23,8 @@ function generateRandomWord() {
 }
 
 function setCharAt(word, index, letter) {
-    if (index > word.length - 1) return word;
+    if (index > word.length - 1) {
+        return word;
+    }
     return word.substr(0, index) + letter + word.substr(index + 1);
 }
