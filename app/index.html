@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Angular Hangman</title>
     <link type="text/css" rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="hangmanController" ng-init="gameExists = false">
 <div class="expanded row">
@@ -48,6 +49,12 @@
     <div class="expanded row">
         <div class="small-12 columns text-center">
             <p>{{gameWord.secretWord}}</p>
+        </div>
+        <div class="small-12 columns text-center">
+            <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter()" class="button keyboard-button">{{letter}}</a>
+        </div>
+        <div class="small-12 columns text-center">
+            <a ng-repeat="letter in lettersSecondRow" ng-click="guessLetter()" class="button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
             <a ng-click="toggleTip()" class="button">Tip!</a>
