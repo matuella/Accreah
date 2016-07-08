@@ -71,5 +71,9 @@ app.controller('hangmanController', function ($scope) {
             return true;
         }
         return false;
-    }
+    };
+
+    $scope.restartGame = function restartGame() {
+        $scope.gameExists =  false;
+    };
 });

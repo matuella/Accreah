@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular Hangman</title>
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Oswald:400,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="hangmanController" ng-init="gameExists = false">
 <div class="expanded row">
     <div class="small-12 columns text-center">
-        <h1>{{title}}</h1>
+        <p class="title">{{title}}</p>
     </div>
 </div>
 <div ng-if="!gameExists" class="expanded row">
@@ -51,6 +52,9 @@
         </div>
         <div class="small-12 columns text-center">
             <a ng-click="toggleTip()" class="button">Tip!</a>
+            <a ng-click="restartGame()" class="button">Back to the beginning!</a>
+        </div>
+        <div class="small-12 columns text-center">
             <p ng-show="showTip">{{gameWord.tip}}</p>
         </div>
     </div>
