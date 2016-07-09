@@ -1,19 +1,19 @@
-body{
-    background-image: url("../images/footer_lodyas.png");
-    width: 100%;
-    height: 100%;
-    font-size: 24px;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-}
-.title{
-    font-size: 60px;
-    color: white;
-    font-family: 'Bangers', cursive;
-}
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-image: url("../images/footer_lodyas.png"); }
 
-.keyboard-button{
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-}
+.title {
+  font-size: 60px;
+  font-family: "Bangers", cursive;
+  color: white; }
+
+.keyboard-button {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px; }
+
+/*# sourceMappingURL=style.css.map */
