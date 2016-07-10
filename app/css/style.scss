@@ -13,16 +13,47 @@ $color-white: white;
     color: $color;
 }
 
+/* Landscape phones and lower*/
+@media (max-width: 480px) {
+
+}
+/* Portrait tablets/landscape phones and lower*/
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+/* /* Portrait+landscape tablets/Desktops and lower */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+}
+/* Desktop  */
+@media (min-width: 1200px) {
+
+}
+
+
 body{
     @include width-height-setup(100%, 100%);
-    @include container-font-setup(24px, 'Oswald', sans-serif, $color-white);
+    @include container-font-setup(150%, 'Oswald', sans-serif, $color-white);
     background-image: url("../images/footer_lodyas.png");
 }
 .title{
-    @include container-font-setup(60px, 'Bangers', cursive, $color-white);
+    @include container-font-setup(300%, 'Bangers', cursive, $color-white);
 }
 
 .keyboard-button{
     @include width-height-setup(40px, 40px);
     margin-left: 10px;
 }
+
+.animated-button{
+    border: black solid 0.1em;
+    transition-property: background-color, border-color;
+    transition-duration: 0.75s;
+    transition-timing-function: linear;
+}
+
+.animated-button:hover{
+    background-color: #0c4d78;
+    border-color: white;
+}
+

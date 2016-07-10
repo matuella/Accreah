@@ -9,30 +9,33 @@
 </head>
 <body ng-controller="hangmanController" ng-init="gameExists = false">
 <div class="expanded row">
-    <div class="small-12 columns text-center">
+    <div class="hide-for-small-only small-12 columns text-center">
         <p class="title">{{title}}</p>
     </div>
 </div>
 <div ng-if="!gameExists" class="expanded row">
-    <div class="small-1 columns">
-        <label for="name" class="text-right middle">Name:</label>
+    <div class="small-offset-3 small-1 columns text-center">
+        <p>Name:</p>
     </div>
-    <div class="small-11 columns">
+    <div class="small-5 columns end">
         <input ng-model="nameInput" type="text" id="name" placeholder="Write your name">
     </div>
-    <div class="small-12 columns text-center">
-        <a ng-click="startGame(nameInput)" href="" class="button expanded">Start Game!</a>
+    <div class="small-offset-3 small-6 columns end text-center">
+        <a ng-click="startGame(nameInput)" href="" class="button animated-button expanded">Start Game!</a>
     </div>
 </div>
 <div ng-if="gameExists">
     <div class="expanded row">
-        <div class="small-12 medium-6 large-4 columns text-center">
+        <div class="small-12 medium-4 columns text-center">
             <p>Player name: {{player.name}}</p>
         </div>
-        <div class="small-12 medium-6 large-4 columns text-center">
+        <div class="small-12 medium-4 columns text-center">
             <p>Remaining attempts: {{player.remainingAttempts}}</p>
         </div>
-        <div class="small-12 medium-12 large-4 columns text-center">
+        <div class="small-12 medium-4 columns text-center">
+            <p>Score: Not implemented</p>
+        </div>
+        <div class="small-12 columns text-center">
             <p>Image src = images/hangman{{player.remainingAttempts}}.png</p>
         </div>
     </div>
@@ -44,24 +47,24 @@
     <div ng-show="!hasEnded()" class="expanded row">
         <div class="small-12 columns text-center">
             <a ng-repeat="letter in lettersFirstRow" ng-click="guessLetter(letter)"
-               ng-class="hasTried(letter)" class="button keyboard-button">{{letter}}</a>
+               ng-class="hasTried(letter)" class="button animated-button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
             <a ng-repeat="letter in lettersSecondRow" ng-click="guessLetter(letter)"
-               ng-class="hasTried(letter)" class="button keyboard-button">{{letter}}</a>
+               ng-class="hasTried(letter)" class="button animated-button keyboard-button">{{letter}}</a>
         </div>
         <div class="small-12 columns text-center">
-            <a ng-click="toggleTip()" class="button">Tip!</a>
-            <a ng-click="restartGame()" class="button">Back to the beginning!</a>
+            <a ng-click="toggleTip()" class="animated-button button">Tip!</a>
+            <a ng-click="restartGame()" class="animated-button button">Back to the beginning!</a>
         </div>
         <div class="small-12 columns text-center">
             <p ng-show="showTip">{{gameWord.tip}}</p>
         </div>
     </div>
     <div ng-show="hasEnded()" class="expanded row">
-        <div class="small-12 columns text-center">
+        <div class="small-offset-3 small-6 columns end text-center">
             <p>{{endingSentence}}</p>
-            <a ng-click="startGame(player.name)" href="" class="button expanded">Start Again!</a>
+            <a ng-click="startGame(player.name)" href="" class="animated-button button expanded">Start Again!</a>
         </div>
     </div>
 </div>

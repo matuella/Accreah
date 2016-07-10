@@ -1,13 +1,17 @@
+/* Landscape phones and lower*/
+/* Portrait tablets/landscape phones and lower*/
+/* /* Portrait+landscape tablets/Desktops and lower */
+/* Desktop  */
 body {
   width: 100%;
   height: 100%;
-  font-size: 24px;
+  font-size: 150%;
   font-family: "Oswald", sans-serif;
   color: white;
   background-image: url("../images/footer_lodyas.png"); }
 
 .title {
-  font-size: 60px;
+  font-size: 300%;
   font-family: "Bangers", cursive;
   color: white; }
 
@@ -15,5 +19,15 @@ body {
   width: 40px;
   height: 40px;
   margin-left: 10px; }
+
+.animated-button {
+  border: black solid 0.1em;
+  transition-property: background-color, border-color;
+  transition-duration: 0.75s;
+  transition-timing-function: linear; }
+
+.animated-button:hover {
+  background-color: #0c4d78;
+  border-color: white; }
 
 /*# sourceMappingURL=style.css.map */
